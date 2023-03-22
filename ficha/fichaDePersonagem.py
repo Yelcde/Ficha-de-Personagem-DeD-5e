@@ -1,4 +1,5 @@
-from habilidades import habilidades
+from habilidades import modificador
+from habilidades import bonusdeprof
 
 class Ficha:
 
@@ -35,11 +36,11 @@ class Ficha:
     # Definindo os modificadores dos atributos
     def modificadorDeAtributo(self):
         atributos = [self.forca, self.destreza, self.constituicao, self.inteligencia, self.sabedoria, self.carisma]
-        modificadores = habilidades.Modificador(atributos)
+        modificadores = modificador.Modificador(atributos)
 
     # Definindo o Bônus de profiência do nivel do jogador
     def bonusDeProficiencia(self):
-        bonusDeProcifiencia = habilidades.BonusDeProficiencia(self.nivel)
+        bonusDeProcifiencia = bonusdeprof.BonusDeProficiencia(self.nivel)
 
     # Definindo as pericias
     def pericias(self):
