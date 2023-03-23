@@ -44,13 +44,15 @@ class Ficha:
     
     @nome.setter
     def nome(self, novoNome):
-        palavra = istext.valid_text(novoNome)
+        valido = istext.valid_text(novoNome)
         while True:
-            if (palavra == False):
-                return 'Digite um nome válido'
+            if (not valido):
+                novoNome = input('Digite um nome válido! Sem caracteres especiais ou números! Tente novamente: ')
+                valido = istext.valid_text(novoNome)
             else:
-                return novoNome
+                self.nome = novoNome
                 break
+
 
 
     # Classe
@@ -58,22 +60,25 @@ class Ficha:
     def classe(self):
         return self.classe
     
-    @nome.setter
+    @classe.setter
     def classe(self, novaClasse):
-
-        if (novaClasse >= 1 and novaClasse <= 30):
-            self.classe = novaClasse
-        else:
-            return 'Digite uma classe válido'
+        num = isnumber.valid_num(novaClasse)
+        while True:
+            if (num == False):
+                return 'Digite um número válido'
+        # if (novaClasse >= 1 and novaClasse <= 30):
+        #     self.classe = novaClasse
+        # else:
+        #     return 'Digite uma classe válido'
             # return 'Digite um nível válido, entre 1-30'
 
 
     # Nível
     @property
-    def classe(self):
+    def nivel(self):
         return self.classe
     
-    @nome.setter
+    @nivel.setter
     def nivel(self, novaClasse):
         if (novaClasse >= 1 and novaClasse <= 30):
             self.classe = novaClasse
