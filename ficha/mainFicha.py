@@ -1,19 +1,34 @@
-from fichaDePersonagem import Ficha
+import fichaDePersonagem
 from validações import isnumber
 
 print('Ficha de Personagem')
 
+# Criando uma instância da Class Ficha()
+ficha = fichaDePersonagem.Ficha()
+
 # Pegando principais variáveis 
-ficha = Ficha()
 
 # Nome do Personagem
 ficha.nome = input('Me dê o nome do seu personagem: ')
-# Colocando variável em fichaDePersonagem
-
 
 # Classe do personagem
-classe = input("Me dê a classe do seu personagem: ")
-ficha.nome = nome
+print('''
+    Lista de classes
+
+    1   -   Bárbaro
+    2   -   Bardo
+    3   -   Bruxo
+    4   -   Clérigo
+    5   -   Druida
+    6   -   Feiticeiro
+    7   -   Guerreiro
+    8   -   Ladino
+    9   -   Mago
+    10  -   Monge
+    11  -   Paladino
+    12  -   Patrulheiro
+''')
+ficha.classe = input("Me dê a classe do seu personagem: ")
 
 # Nível do personagem
 nivel = int(input('Me dê o nível do seu personagem [1-30]:'))

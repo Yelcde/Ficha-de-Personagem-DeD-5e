@@ -1,4 +1,4 @@
-from ficha import fichaDePersonagem
+import fichaDePersonagem
 
 # Definindo Bônus de Proficiência
 def BonusDeProficiencia(nivel):

@@ -1,4 +1,4 @@
-from ficha import fichaDePersonagem
+import fichaDePersonagem
 
 # Definindo os modificadores de atributos
 def Modificador(atributos):

@@ -1,48 +1,85 @@
 from habilidades import modificador
 from habilidades import bonusdeprof
+from validações import isnumber
+from validações import istext
 
 class Ficha:
 
     # Header da ficha
-    def __init__(self, nome, classe, nivel, antecedente, nomeDoJogador, raca, tendencia, pontosdeExperiencia, forca, destreza, constituicao, inteligencia, sabedoria, carisma, classeDeArmadura, iniciativa, deslocamento):
+    # def __init__(self, nome, classe, nivel, antecedente, nomeDoJogador, raca, tendencia, pontosdeExperiencia, forca, destreza, constituicao, inteligencia, sabedoria, carisma, classeDeArmadura, iniciativa, deslocamento):
 
-        # self.nome = nome
-        # self.classe = classe
-        # self.nivel = nivel
-        # self.antecedente = antecedente
-        # self.nomeDoJogador = nomeDoJogador
-        # self.raca = raca
-        # self.tendencia = tendencia
-        # self.pontosDeExperiencia = pontosdeExperiencia
+    #     self.nome = nome
+    #     self.classe = classe
+    #     self.nivel = nivel
+    #     self.antecedente = antecedente
+    #     self.nomeDoJogador = nomeDoJogador
+    #     self.raca = raca
+    #     self.tendencia = tendencia
+    #     self.pontosDeExperiencia = pontosdeExperiencia
 
-        # Atributos
-        self.forca = forca
-        self.destreza = destreza
-        self.constituicao = constituicao
-        self.inteligencia = inteligencia
-        self.sabedoria = sabedoria
-        self.carisma = carisma
+    #     # Atributos
+    #     self.forca = forca
+    #     self.destreza = destreza
+    #     self.constituicao = constituicao
+    #     self.inteligencia = inteligencia
+    #     self.sabedoria = sabedoria
+    #     self.carisma = carisma
 
-        # Armadura
-        self.classeDeArmadura = classeDeArmadura
+    #     # Armadura
+    #     self.classeDeArmadura = classeDeArmadura
 
-        # Iniciativa
-        self.iniciativa = iniciativa 
+    #     # Iniciativa
+    #     self.iniciativa = iniciativa 
 
-        # Deslocamento 
-        self.deslocamento = deslocamento
+    #     # Deslocamento 
+    #     self.deslocamento = deslocamento
 
 
+    # Setando Variaveis
+
+    # Nome
     @property
     def nome(self):
-        return self.__nome
+        return self.nome
     
     @nome.setter
     def nome(self, novoNome):
-        if novoNome == '':
-            return 'erro'
+        palavra = istext.valid_text(novoNome)
+        while True:
+            if (palavra == False):
+                return 'Digite um nome válido'
+            else:
+                return novoNome
+                break
+
+
+    # Classe
+    @property
+    def classe(self):
+        return self.classe
+    
+    @nome.setter
+    def classe(self, novaClasse):
+
+        if (novaClasse >= 1 and novaClasse <= 30):
+            self.classe = novaClasse
         else:
-            self.nome = novoNome
+            return 'Digite uma classe válido'
+            # return 'Digite um nível válido, entre 1-30'
+
+
+    # Nível
+    @property
+    def classe(self):
+        return self.classe
+    
+    @nome.setter
+    def nivel(self, novaClasse):
+        if (novaClasse >= 1 and novaClasse <= 30):
+            self.classe = novaClasse
+        else:
+            return 'Digite um nível válido, entre 1-30'
+
 
     # Definindo os modificadores dos atributos
     def modificadorDeAtributo(self):
