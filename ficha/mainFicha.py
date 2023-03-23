@@ -1,20 +1,25 @@
-import fichaDePersonagem
+from fichaDePersonagem import Ficha
+from validações import isnumber
 
 print('Ficha de Personagem')
 
 # Pegando principais variáveis 
+ficha = Ficha()
 
 # Nome do Personagem
-nome = input('Me dê o nome do seu personagem: ')
+ficha.nome = input('Me dê o nome do seu personagem: ')
 # Colocando variável em fichaDePersonagem
-ficha = fichaDePersonagem(nome)
+
 
 # Classe do personagem
 classe = input("Me dê a classe do seu personagem: ")
-ficha = fichaDePersonagem(classe)
+ficha.nome = nome
 
 # Nível do personagem
 nivel = int(input('Me dê o nível do seu personagem [1-30]:'))
+
+nivel = isnumber.valid_num(1, 30)
+
 if (nivel >= 1 and nivel <= 30):
     ficha = fichaDePersonagem(nivel) 
 
@@ -35,4 +40,4 @@ print('''
     11  -   Orfão
     12  -   Sábio
 ''')
-antecedente = input()
+antecedente = isnumber.valid_num(1, 12)

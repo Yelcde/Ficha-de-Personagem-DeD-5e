@@ -6,14 +6,14 @@ class Ficha:
     # Header da ficha
     def __init__(self, nome, classe, nivel, antecedente, nomeDoJogador, raca, tendencia, pontosdeExperiencia, forca, destreza, constituicao, inteligencia, sabedoria, carisma, classeDeArmadura, iniciativa, deslocamento):
 
-        self.nome = nome
-        self.classe = classe
-        self.nivel = nivel
-        self.antecedente = antecedente
-        self.nomeDoJogador = nomeDoJogador
-        self.raca = raca
-        self.tendencia = tendencia
-        self.pontosDeExperiencia = pontosdeExperiencia
+        # self.nome = nome
+        # self.classe = classe
+        # self.nivel = nivel
+        # self.antecedente = antecedente
+        # self.nomeDoJogador = nomeDoJogador
+        # self.raca = raca
+        # self.tendencia = tendencia
+        # self.pontosDeExperiencia = pontosdeExperiencia
 
         # Atributos
         self.forca = forca
@@ -32,6 +32,17 @@ class Ficha:
         # Deslocamento 
         self.deslocamento = deslocamento
 
+
+    @property
+    def nome(self):
+        return self.__nome
+    
+    @nome.setter
+    def nome(self, novoNome):
+        if novoNome == '':
+            return 'erro'
+        else:
+            self.nome = novoNome
 
     # Definindo os modificadores dos atributos
     def modificadorDeAtributo(self):
