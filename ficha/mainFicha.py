@@ -1,5 +1,5 @@
 import fichaDePersonagem
-from validações import isnumber
+from validações import isnumber,istext
 
 print('Ficha de Personagem')
 
@@ -10,8 +10,17 @@ ficha = fichaDePersonagem.Ficha()
 # Pegando principais variáveis 
 
 # Nome do Personagem
-ficha.nome = input('Me dê o nome do seu personagem: ')
+while (True):
+    try:
+        novoNome =  input('Me dê o nome do seu personagem: ')
+        ficha.nome = novoNome
+    except AssertionError:
+        print('Digite um nome válido! Sem caracteres especiais como interrogação ou números!')
+    else:
+        break
 print(ficha.nome)
+
+        
 
 # Classe do personagem
 print('''
