@@ -3,6 +3,7 @@ from validações import isnumber
 
 print('Ficha de Personagem')
 
+
 # Criando uma instância da Class Ficha()
 ficha = fichaDePersonagem.Ficha()
 

@@ -5,8 +5,9 @@ def valid_text(texto):
     
     if textfinal.isalpha():
         resultado = True
-    
-    return resultado
+        return resultado
+    else:
+        return resultado
 
 # import isnumber
 
