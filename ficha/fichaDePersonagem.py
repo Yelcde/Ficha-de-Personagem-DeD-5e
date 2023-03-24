@@ -69,7 +69,9 @@ class Ficha:
         num = isnumber.valid_num(novaClasse)
         while True:
             if (num == False):
-                return 'Digite um número válido'
+                num = input
+
+
         # if (novaClasse >= 1 and novaClasse <= 30):
         #     self.classe = novaClasse
         # else:

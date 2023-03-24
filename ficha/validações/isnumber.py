@@ -1,6 +1,16 @@
 # Funções
 def valid_num(num):
-	return isinstance(num, int)
+	num = int(num)
+	verificação = False
+	verificação = isinstance(num, int)  
+
+	if (verificação == True and (num >= 1 or num <= 12)):  
+		return verificação
+	else:  
+		return verificação
+
+# def valid_num(num):
+# 	return isinstance(num, int)
 
 # def valid_num(lower, higher, can_exit=False):
 	# while True:
