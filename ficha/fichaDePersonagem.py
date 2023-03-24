@@ -45,17 +45,15 @@ class Ficha:
     @nome.setter
     def nome(self, novoNome):
         valido = istext.valid_text(novoNome)
-        while True:
-            if (valido == False):
-                while True:
-                    if (valido == False):
-                        novoNome = input('Digite um nome válido! Sem caracteres especiais como interrogação ou números! Tente novamente: ')
-                        valido = istext.valid_text(novoNome)
-                    else:
-                        break
-            else:
-                return novoNome
-                break
+        if (valido == False):
+            while True:
+                if (valido == False):
+                    novoNome = input('Digite um nome válido! Sem caracteres especiais como interrogação ou números! Tente novamente: ')
+                    valido = istext.valid_text(novoNome)
+                else:
+                    self.nome = novoNome
+                    break
+        
 
 
 

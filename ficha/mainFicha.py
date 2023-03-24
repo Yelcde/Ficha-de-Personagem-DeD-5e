@@ -11,6 +11,7 @@ ficha = fichaDePersonagem.Ficha()
 
 # Nome do Personagem
 ficha.nome = input('Me dê o nome do seu personagem: ')
+print(ficha.nome)
 
 # Classe do personagem
 print('''
