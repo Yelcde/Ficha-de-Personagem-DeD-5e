@@ -8,7 +8,7 @@ class Ficha:
     # Header da ficha
     def __init__(self):
 
-        self.__nome = 'a'
+        self.__nome = None
         self.__classe = None
         self.__nivel = None
         self.__antecedente = None
@@ -44,31 +44,29 @@ class Ficha:
     
     @nome.setter
     def nome(self, novoNome):
-        assert self.__validaNome(novoNome)
+        assert self.__validaTexto(novoNome) == True
         self.__nome = novoNome
 
         
 
 
 
-    # # Classe
-    # @property
-    # def classe(self):
-    #     return self.classe
+    # Classe
+    @property
+    def classe(self):
+        return self.__classe
     
-    # @classe.setter
-    # def classe(self, novaClasse):
-    #     num = isnumber.valid_num(novaClasse)
-    #     while True:
-    #         if (num == False):
-    #             num = input
+    @classe.setter
+    def classe(self, novaClasse): 
+        assert self.__validaNum(novaClasse) == True and (int(novaClasse) >= 1 and int(novaClasse) <= 12)
+        self.__classe = self.__classePorExtenso(novaClasse)
 
-
-    #     # if (novaClasse >= 1 and novaClasse <= 30):
-    #     #     self.classe = novaClasse
-    #     # else:
-    #     #     return 'Digite uma classe válido'
-    #         # return 'Digite um nível válido, entre 1-30'
+    def __classePorExtenso(self, classePorExtenso):
+        classes = ['Bárbaro', 'Bardo', 'Bruxo', 'Clérigo', 'Druida', 'Feiticeiro', 'Guerreiro', 'Ladino', 'Mago', 'Monge', 'Paladino', 'Patrulheiro']
+        classePorExtenso = int(classePorExtenso)-1
+        for i in range(1, 13):
+            if (i == classePorExtenso):
+                return classes[i]
 
 
     # # Nível
@@ -84,21 +82,49 @@ class Ficha:
     #         return 'Digite um nível válido, entre 1-30'
 
 
-    # Definindo os modificadores dos atributos
-    def modificadorDeAtributo(self):
-        atributos = [self.forca, self.destreza, self.constituicao, self.inteligencia, self.sabedoria, self.carisma]
-        modificadores = modificador.Modificador(atributos)
+    # # Definindo os modificadores dos atributos
+    # def modificadorDeAtributo(self):
+    #     atributos = [self.__forca, self.__destreza, self.__constituicao, self.__inteligencia, self.__sabedoria, self.__carisma]
+    #     modificadores = modificador.Modificador(atributos)
 
-    # Definindo o Bônus de profiência do nivel do jogador
-    def bonusDeProficiencia(self):
-        bonusDeProcifiencia = bonusdeprof.BonusDeProficiencia(self.nivel)
+    # # Definindo o Bônus de profiência do nivel do jogador
+    # def bonusDeProficiencia(self):
+    #     bonusDeProcifiencia = bonusdeprof.BonusDeProficiencia(self.__nivel)
 
-    # Definindo as pericias
-    def pericias(self):
-        pass
+    # # Definindo as pericias
+    # def pericias(self):
+    #     pass
 
-    def __validaNome(self, nome):
-        nome = nome.strip()
-        nome = nome.replace(' ', '')
+
+    # Validações
+
+    # Validando textos
+    def __validaTexto(self, texto):
+        texto = texto.strip()
+        texto = texto.replace(' ', '')
         
-        return nome.isalpha()
+        return texto.isalpha()
+
+
+    # Validando números
+    def __validaNum(self, num):
+        try:
+            int(num)
+        except ValueError:
+            return False
+        return True
+        # nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+        # count = 0
+        # for i in nums:
+        #     if (i == nums[count]):
+        #         count += 1
+        #         return True
+        # return False
+
+        # verificação = isinstance(num, int)  
+        # return verificação
+
+        # if (verificação == True and (num >= 1 or num <= 12)):  
+        #     return verificação
+        # else:  
+        #     return verificação
