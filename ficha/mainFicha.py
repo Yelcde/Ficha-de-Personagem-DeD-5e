@@ -22,11 +22,11 @@ while (True and (certeza == False)):
         if (certeza == False):
             while True:
                 ver = input(f'Tem certeza que o nome do seu personagem vai ser "{ficha.nome}"? [S/N] ').upper()
-                if ((ver == 'S') or (ver == 'SIM')):
+                if (ver in 'SIM'):
                     os.system('cls')
                     certeza = True
                     break
-                if ((ver == 'N') or (ver == 'NÃO') or (ver == "NAO")):
+                if ((ver in 'NAO') or (ver == 'NÃO')):
                     os.system('cls')
                     novoValorDeVariavel += 1
                     ficha.nome = '3'
@@ -74,11 +74,11 @@ Lista de classes
             while True:
                 ver = input(f'Tem certeza que a classe do seu personagem vai ser "{ficha.classe}"? [S/N] ').upper()
                 print(ver)
-                if ((ver == 'S') or (ver == 'SIM')):
+                if (ver in 'SIM'):
                     os.system('cls')
                     certeza = True
                     break
-                if ((ver == 'N') or (ver == 'NÃO') or (ver == "NAO")):
+                if ((ver in 'NAO') or (ver == 'NÃO')):
                     os.system('cls')
                     novoValorDeVariavel += 1
                     ficha.classe = 13
