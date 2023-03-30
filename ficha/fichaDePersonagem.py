@@ -100,7 +100,7 @@ class Ficha:
     def __validaTexto(self, texto):
         texto = texto.strip()
         texto = texto.replace(' ', '')
-        
+
         return texto.isalpha()
 
 

@@ -11,35 +11,42 @@ ficha = fichaDePersonagem.Ficha()
 
 # Inicializando variavel de controle
 certeza = False
+novoValorDeVariavel = 0
 
 # Nome do Personagem
 while (True and (certeza == False)):
     try:
         novoNome =  input('Me dê o nome do seu personagem: ')
+        novoValorDeVariavel = 0
         ficha.nome = novoNome
+        if (certeza == False):
+            while True:
+                ver = input(f'Tem certeza que o nome do seu personagem vai ser "{ficha.nome}"? [S/N] ').upper()
+                if ((ver == 'S') or (ver == 'SIM')):
+                    os.system('cls')
+                    certeza = True
+                    break
+                if ((ver == 'N') or (ver == 'NÃO') or (ver == "NAO")):
+                    os.system('cls')
+                    novoValorDeVariavel += 1
+                    ficha.nome = '3'
+                    break
+                else:
+                    os.system('cls')
+                    print('Digite [S/N}\n')
     except AssertionError:
         os.system('cls')
-        print('Digite um nome válido! Sem caracteres especiais como interrogação ou números!\n')
-    if (certeza == False):
-        while True:
-            ver = input(f'Tem certeza que o nome do seu personagem vai ser "{ficha.nome}"? [S/N] ').upper()
-            print(ver)
-            if ((ver == 'S') or (ver == 'SIM')):
-                os.system('cls')
-                certeza = True
-                break
-            if ((ver == 'N') or (ver == 'NÃO') or (ver == "NAO")):
-                os.system('cls')
-                break
-            else:
-                os.system('cls')
-                print('Digite [S/N}')
+        if novoValorDeVariavel == 0:
+            print('Digite um nome válido! Sem caracteres especiais como interrogação ou números!\n')
+        else:
+            print('Digite seu novo nome!\n')
     else:
         os.system('cls')
         break
 
 # Fazendo variável de controle voltar ao valor Default
 certeza = False
+novoValorDeVariavel = 0
 
 # Classe do personagem
 while (True and (certeza == False)):
@@ -61,24 +68,30 @@ Lista de classes
 ''')
     try:
         novaClasse = input("Me dê a classe do seu personagem: ")
+        novoValorDeVariavel = 0
         ficha.classe = novaClasse
+        if (certeza == False):
+            while True:
+                ver = input(f'Tem certeza que a classe do seu personagem vai ser "{ficha.classe}"? [S/N] ').upper()
+                print(ver)
+                if ((ver == 'S') or (ver == 'SIM')):
+                    os.system('cls')
+                    certeza = True
+                    break
+                if ((ver == 'N') or (ver == 'NÃO') or (ver == "NAO")):
+                    os.system('cls')
+                    novoValorDeVariavel += 1
+                    ficha.classe = 13
+                    break
+                else:
+                    os.system('cls')
+                    print('Digite [S/N}\n')
     except AssertionError:
         os.system('cls')
-        print('Digite um número entre 1 e 12!')
-    if (certeza == False):
-        while True:
-            ver = input(f'Tem certeza que a classe do seu personagem vai ser "{ficha.classe}"? [S/N] ').upper()
-            print(ver)
-            if ((ver == 'S') or (ver == 'SIM')):
-                os.system('cls')
-                certeza = True
-                break
-            if ((ver == 'N') or (ver == 'NÃO') or (ver == "NAO")):
-                os.system('cls')
-                break
-            else:
-                os.system('cls')
-                print('Digite [S/N}')
+        if novoValorDeVariavel == 0:
+            print('Digite um número entre 1 e 12!')
+        else:
+            print('Digite o número da sua nova classe!\n')
     else:
         os.system('cls')
         break
