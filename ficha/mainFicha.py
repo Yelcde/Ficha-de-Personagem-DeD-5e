@@ -1,5 +1,5 @@
 import fichaDePersonagem
-from validações import isnumber,istext
+import os
 
 print('Ficha de Personagem')
 
@@ -9,21 +9,41 @@ ficha = fichaDePersonagem.Ficha()
 
 # Pegando principais variáveis 
 
+# Inicializando variavel de controle
+certeza = False
+
 # Nome do Personagem
-while (True):
+while (True and (certeza == False)):
     try:
         novoNome =  input('Me dê o nome do seu personagem: ')
         ficha.nome = novoNome
     except AssertionError:
+        os.system('cls')
         print('Digite um nome válido! Sem caracteres especiais como interrogação ou números!\n')
+    if (certeza == False):
+        while True:
+            ver = input(f'Tem certeza que o nome do seu personagem vai ser "{ficha.nome}"? [S/N] ').upper()
+            print(ver)
+            if ((ver == 'S') or (ver == 'SIM')):
+                os.system('cls')
+                certeza = True
+                break
+            if ((ver == 'N') or (ver == 'NÃO') or (ver == "NAO")):
+                os.system('cls')
+                break
+            else:
+                os.system('cls')
+                print('Digite [S/N}')
     else:
+        os.system('cls')
         break
-print(ficha.nome)
 
-        
+# Fazendo variável de controle voltar ao valor Default
+certeza = False
 
 # Classe do personagem
-print('''
+while (True and (certeza == False)):
+    print('''
 Lista de classes
 
 1   -   Bárbaro
@@ -39,24 +59,34 @@ Lista de classes
 11  -   Paladino
 12  -   Patrulheiro
 ''')
-
-while True:
     try:
         novaClasse = input("Me dê a classe do seu personagem: ")
         ficha.classe = novaClasse
     except AssertionError:
-        print('Digite um número entre 1 e 12!\n')
+        os.system('cls')
+        print('Digite um número entre 1 e 12!')
+    if (certeza == False):
+        while True:
+            ver = input(f'Tem certeza que a classe do seu personagem vai ser "{ficha.classe}"? [S/N] ').upper()
+            print(ver)
+            if ((ver == 'S') or (ver == 'SIM')):
+                os.system('cls')
+                certeza = True
+                break
+            if ((ver == 'N') or (ver == 'NÃO') or (ver == "NAO")):
+                os.system('cls')
+                break
+            else:
+                os.system('cls')
+                print('Digite [S/N}')
     else:
+        os.system('cls')
         break
-print(ficha.classe)
+
 
 # Nível do personagem
 ficha.nivel = input('Me dê o nível do seu personagem [1-30]:')
 
-# nivel = isnumber.valid_num(1, 30)
-
-# if (nivel >= 1 and nivel <= 30):
-#     ficha = fichaDePersonagem(nivel) 
 
 # Antecedente do personagem
 print('''

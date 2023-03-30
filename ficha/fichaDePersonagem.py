@@ -1,7 +1,5 @@
 from habilidades import modificador
 from habilidades import bonusdeprof
-from validações import isnumber
-from validações import istext
 
 class Ficha:
 
@@ -113,18 +111,3 @@ class Ficha:
         except ValueError:
             return False
         return True
-        # nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-        # count = 0
-        # for i in nums:
-        #     if (i == nums[count]):
-        #         count += 1
-        #         return True
-        # return False
-
-        # verificação = isinstance(num, int)  
-        # return verificação
-
-        # if (verificação == True and (num >= 1 or num <= 12)):  
-        #     return verificação
-        # else:  
-        #     return verificação
