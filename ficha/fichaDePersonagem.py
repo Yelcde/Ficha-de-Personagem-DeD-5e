@@ -1,5 +1,5 @@
-from habilidades import modificador
-from habilidades import bonusdeprof
+# from habilidades import modificador
+# from habilidades import bonusdeprof
 
 class Ficha:
 
@@ -45,9 +45,6 @@ class Ficha:
         assert self.__validaTexto(novoNome) == True
         self.__nome = novoNome
 
-        
-
-
 
     # Classe
     @property
@@ -62,23 +59,38 @@ class Ficha:
     def __classePorExtenso(self, classePorExtenso):
         classes = ['Bárbaro', 'Bardo', 'Bruxo', 'Clérigo', 'Druida', 'Feiticeiro', 'Guerreiro', 'Ladino', 'Mago', 'Monge', 'Paladino', 'Patrulheiro']
         classePorExtenso = int(classePorExtenso)-1
-        for i in range(1, 13):
+        for i in range(0, 12):
             if (i == classePorExtenso):
                 return classes[i]
 
 
-    # # Nível
-    # @property
-    # def nivel(self):
-    #     return self.classe
+    # Nível
+    @property
+    def nivel(self):
+        return self.__nivel
     
-    # @nivel.setter
-    # def nivel(self, novaClasse):
-    #     if (novaClasse >= 1 and novaClasse <= 30):
-    #         self.classe = novaClasse
-    #     else:
-    #         return 'Digite um nível válido, entre 1-30'
+    @nivel.setter
+    def nivel(self, novoNivel):
+        assert self.__validaNum(novoNivel) == True and (int(novoNivel) >= 1 and int(novoNivel) <= 30)
+        self.__nivel = novoNivel
 
+
+    # Antecedente
+    @property
+    def antecedente(self):
+        return self.__antecedente
+    
+    @antecedente.setter
+    def antecedente(self, novoAntecedente): 
+        assert self.__validaNum(novoAntecedente) == True and (int(novoAntecedente) >= 1 and int(novoAntecedente) <= 12)
+        self.__classe = self.__antecedentePorExtenso(novoAntecedente)
+
+    def __antecedentePorExtenso(self, antecedentePorExtenso):
+        antecedentes = ['Acólito', 'Artesão de Guilda', 'Artista', 'Charlatão', 'Criminoso', 'Eremita', 'Forasteiro', 'Herói do Povo', 'Marinheiro', 'Nobre', 'Orfão', 'Sábio']
+        antecedentePorExtenso = int(antecedentePorExtenso)-1
+        for i in range(0, 12):
+            if (i == antecedentePorExtenso):
+                return antecedentes[i]
 
     # # Definindo os modificadores dos atributos
     # def modificadorDeAtributo(self):

@@ -96,13 +96,49 @@ Lista de classes
         os.system('cls')
         break
 
+# Fazendo variável de controle voltar ao valor Default
+certeza = False
+novoValorDeVariavel = 0
 
 # Nível do personagem
-ficha.nivel = input('Me dê o nível do seu personagem [1-30]:')
+while (True and (certeza == False)):
+    try:
+        novoNivel = input('Me dê o nível do seu personagem [1-30]: ')
+        novoValorDeVariavel = 0
+        ficha.nivel = novoNivel
+        if (certeza == False):
+            while True:
+                ver = input(f'Tem certeza que o nível do seu personagem vai ser "{ficha.nivel}"? [S/N] ').upper()
+                print(ver)
+                if (ver in 'SIM'):
+                    os.system('cls')
+                    certeza = True
+                    break
+                if ((ver in 'NAO') or (ver == 'NÃO')):
+                    os.system('cls')
+                    novoValorDeVariavel += 1
+                    ficha.nivel = 44
+                    break
+                else:
+                    os.system('cls')
+                    print('Digite [S/N}\n')
+    except AssertionError:
+        os.system('cls')
+        if novoValorDeVariavel == 0:
+            print('Digite um número entre 1 e 30!\n')
+        else:
+            print('Digite um novo nível para o seu personagem!\n')
+    else:
+        os.system('cls')
+        break
 
+# Fazendo variável de controle voltar ao valor Default
+certeza = False
+novoValorDeVariavel = 0
 
 # Antecedente do personagem
-print('''
+while (True and (certeza == False)):
+    print('''
 Lista de antecedentes
 
 1   -   Acólito
@@ -118,4 +154,36 @@ Lista de antecedentes
 11  -   Orfão
 12  -   Sábio
 ''')
-# antecedente = isnumber.valid_num(1, 12)
+    try:
+        novoAntecedente = input("Me dê o antecedente do seu personagem: ")
+        novoValorDeVariavel = 0
+        ficha.antecedente = novoAntecedente
+        if (certeza == False):
+            while True:
+                ver = input(f'Tem certeza que o antecedente do seu personagem vai ser "{ficha.antecedente}"? [S/N] ').upper()
+                print(ver)
+                if (ver in 'SIM'):
+                    os.system('cls')
+                    certeza = True
+                    break
+                if ((ver in 'NAO') or (ver == 'NÃO')):
+                    os.system('cls')
+                    novoValorDeVariavel += 1
+                    ficha.antecedente = 13
+                    break
+                else:
+                    os.system('cls')
+                    print('Digite [S/N}\n')
+    except AssertionError:
+        os.system('cls')
+        if novoValorDeVariavel == 0:
+            print('Digite um número entre 1 e 12!')
+        else:
+            print('Digite o número do seu Antecedente!\n')
+    else:
+        os.system('cls')
+        break
+
+# Fazendo variável de controle voltar ao valor Default
+certeza = False
+novoValorDeVariavel = 0
