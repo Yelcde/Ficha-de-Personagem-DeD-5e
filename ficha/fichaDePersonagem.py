@@ -57,11 +57,8 @@ class Ficha:
         self.__classe = self.__classePorExtenso(novaClasse)
 
     def __classePorExtenso(self, classePorExtenso):
-        classes = ['Bárbaro', 'Bardo', 'Bruxo', 'Clérigo', 'Druida', 'Feiticeiro', 'Guerreiro', 'Ladino', 'Mago', 'Monge', 'Paladino', 'Patrulheiro']
-        classePorExtenso = int(classePorExtenso)-1
-        for i in range(0, 12):
-            if (i == classePorExtenso):
-                return classes[i]
+        classes = {1: 'Bárbaro', 2: 'Bardo', 3: 'Bruxo', 4: 'Clérigo', 5: 'Druida', 6: 'Feiticeiro', 7: 'Guerreiro', 8: 'Ladino', 9: 'Mago', 10: 'Monge', 11: 'Paladino', 12: 'Patrulheiro'}
+        return classes[int(classePorExtenso)]
 
 
     # Nível
@@ -83,14 +80,12 @@ class Ficha:
     @antecedente.setter
     def antecedente(self, novoAntecedente): 
         assert self.__validaNum(novoAntecedente) == True and (int(novoAntecedente) >= 1 and int(novoAntecedente) <= 12)
-        self.__classe = self.__antecedentePorExtenso(novoAntecedente)
+        self.__antecedente = self.__antecedentePorExtenso(novoAntecedente)
 
     def __antecedentePorExtenso(self, antecedentePorExtenso):
-        antecedentes = ['Acólito', 'Artesão de Guilda', 'Artista', 'Charlatão', 'Criminoso', 'Eremita', 'Forasteiro', 'Herói do Povo', 'Marinheiro', 'Nobre', 'Orfão', 'Sábio']
-        antecedentePorExtenso = int(antecedentePorExtenso)-1
-        for i in range(0, 12):
-            if (i == antecedentePorExtenso):
-                return antecedentes[i]
+        antecedentes = {1: 'Acólito', 2: 'Artesão de Guilda', 3: 'Artista', 4: 'Charlatão', 5: 'Criminoso', 6: 'Eremita', 7: 'Forasteiro', 8: 'Herói do Povo', 9: 'Marinheiro', 10: 'Nobre', 11: 'Orfão', 12: 'Sábio'}
+        return antecedentes[int(antecedentePorExtenso)]
+
 
     # # Definindo os modificadores dos atributos
     # def modificadorDeAtributo(self):
