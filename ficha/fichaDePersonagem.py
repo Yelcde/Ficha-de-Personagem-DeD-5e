@@ -14,6 +14,7 @@ class Ficha:
         self.__raca = None
         self.__tendencia = None
         self.__pontosDeExperiencia = None
+        self.__bonusDeExperiencia = None
 
         # Atributos
         self.__forca = None
@@ -68,7 +69,7 @@ class Ficha:
     
     @nivel.setter
     def nivel(self, novoNivel):
-        assert self.__validaNum(novoNivel) == True and (int(novoNivel) >= 1 and int(novoNivel) <= 30)
+        assert self.__validaNum(novoNivel) == True and (int(novoNivel) >= 1 and int(novoNivel) <= 20)
         self.__nivel = novoNivel
 
 
@@ -93,9 +94,50 @@ class Ficha:
         return self.__nomeDoJogador
     
     @nomeDoJogador.setter
-    def nomeDoJogador(self, novoNome):
-        assert self.__validaTexto(novoNome) == True
-        self.__nomeDoJogador = novoNome
+    def nomeDoJogador(self, novoNomeDoJogador):
+        assert self.__validaTexto(novoNomeDoJogador) == True
+        self.__nomeDoJogador = novoNomeDoJogador
+
+    
+    # Raça
+    @property
+    def raca(self):
+        return self.__raca
+    
+    @raca.setter
+    def raca(self, novaRaca): 
+        assert self.__validaNum(novaRaca) == True and (int(novaRaca) >= 1 and int(novaRaca) <= 9)
+        self.__raca = self.__racaPorExtenso(novaRaca)
+
+    def __racaPorExtenso(self, racaPorExtenso):
+        raca = {1: 'Anão', 2: 'Elfo', 3: 'Halfling', 4: 'Humano', 5: 'Draconato', 6: 'Gnomo', 7: 'Meio-Elfo', 8: 'Meio-Orc', 9: 'Tiefling'}
+        return raca[int(racaPorExtenso)]
+
+
+    # Tendência
+    @property
+    def tendencia(self):
+        return self.__tendencia
+    
+    @tendencia.setter
+    def tendencia(self, novatendencia): 
+        assert self.__validaNum(novatendencia) == True and (int(novatendencia) >= 1 and int(novatendencia) <= 9)
+        self.__tendencia = self.__tendenciaPorExtenso(novatendencia)
+
+    def __tendenciaPorExtenso(self, novatendencia):
+        tendencias = {1: 'Leal e Bom (LB)', 2: 'Neutro e Bom (NB)', 3: 'Caótico e Bom (CB)', 4: 'Leal e Neutro (LN)', 5: 'Neutro (N)', 6: 'Caótico e Neutro (CN)', 7: 'Leal e Mau (LM)', 8: 'Neutro e Mau (NM)', 9: 'Caótico e Mau (CM)'}
+        return tendencias[int(novatendencia)]
+
+
+    # Pontos de Experiencia
+    @property
+    def pontosDeExperiencia(self):
+        return self.__pontosDeExperiencia
+    
+    @pontosDeExperiencia.setter
+    def pontosDeExperiencia(self, novosPontosDeExperiencia):
+        assert self.__validaNum(novosPontosDeExperiencia) == True and int(novosPontosDeExperiencia) >= 0
+        self.__pontosDeExperiencia = novosPontosDeExperiencia
 
 
     # Validações
