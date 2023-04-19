@@ -187,3 +187,38 @@ Lista de antecedentes
 # Fazendo variável de controle voltar ao valor Default
 certeza = False
 novoValorDeVariavel = 0
+
+# Nome do Jogador
+while (True and (certeza == False)):
+    try:
+        novoNome =  input('Me dê o seu nome: ')
+        novoValorDeVariavel = 0
+        ficha.__nomeDoJogador = novoNome
+        if (certeza == False):
+            while True:
+                ver = input(f'Tem certeza que o nome do seu personagem vai ser "{ficha.__nomeDoJogador}"? [S/N] ').upper()
+                if (ver in 'SIM'):
+                    os.system('cls')
+                    certeza = True
+                    break
+                if ((ver in 'NAO') or (ver == 'NÃO')):
+                    os.system('cls')
+                    novoValorDeVariavel += 1
+                    ficha.__nomeDoJogador = '3'
+                    break
+                else:
+                    os.system('cls')
+                    print('Digite [S/N}\n')
+    except AssertionError:
+        os.system('cls')
+        if novoValorDeVariavel == 0:
+            print('Digite um nome válido! Sem caracteres especiais como interrogação ou números!\n')
+        else:
+            print('Digite seu novo nome!\n')
+    else:
+        os.system('cls')
+        break
+
+# Fazendo variável de controle voltar ao valor Default
+certeza = False
+novoValorDeVariavel = 0

@@ -87,18 +87,15 @@ class Ficha:
         return antecedentes[int(antecedentePorExtenso)]
 
 
-    # # Definindo os modificadores dos atributos
-    # def modificadorDeAtributo(self):
-    #     atributos = [self.__forca, self.__destreza, self.__constituicao, self.__inteligencia, self.__sabedoria, self.__carisma]
-    #     modificadores = modificador.Modificador(atributos)
-
-    # # Definindo o Bônus de profiência do nivel do jogador
-    # def bonusDeProficiencia(self):
-    #     bonusDeProcifiencia = bonusdeprof.BonusDeProficiencia(self.__nivel)
-
-    # # Definindo as pericias
-    # def pericias(self):
-    #     pass
+    # Nome do Jogador
+    @property
+    def nomeDoJogador(self):
+        return self.__nomeDoJogador
+    
+    @nomeDoJogador.setter
+    def nomeDoJogador(self, novoNome):
+        assert self.__validaTexto(novoNome) == True
+        self.__nomeDoJogador = novoNome
 
 
     # Validações
