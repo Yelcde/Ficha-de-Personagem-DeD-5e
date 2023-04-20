@@ -134,6 +134,9 @@ while (certeza == False):
 certeza = False
 novoValorDeVariavel = 0
 
+# Definindo função que para nivel
+# 5245.94 + (1.165062 - 5245.94)/(1 + (x/223761600000.00003)**0.4210905)
+
 # Nível do personagem
 while (certeza == False):
     try:
